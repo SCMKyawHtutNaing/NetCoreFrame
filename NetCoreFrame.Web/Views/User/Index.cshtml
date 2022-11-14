@@ -1,0 +1,46 @@
+﻿@model NetCoreFrame.Entities.DTO.UserViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User List</h1>
+
+<div class="container-fluid h-100 mt-5">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="col-12 right mb-3">
+                <a class="btn btn-outline-dark btn-sm" asp-controller="User" asp-action="Create">Create New User</a>
+            </div>
+            <table id="tbl" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                            Full Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Role
+                        </th>
+                        <th>
+                            Created Date
+                        </th>
+                        <th>
+                            Created By
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                
+                
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/pages/user-list.js"></script>
+  

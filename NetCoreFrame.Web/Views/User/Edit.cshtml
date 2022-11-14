@@ -1,0 +1,87 @@
+﻿@model NetCoreFrame.Entities.DTO.UserEditViewModel
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="container-fluid h-100 mt-5">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+            <h3 class="mb-3">Edit User</h3>
+            <div asp-validation-summary="All"></div>
+            <form method="post">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4">
+                            <input asp-for="FirstName" class="form-control" placeholder="john" maxlength="100" />
+                            <label asp-for="FirstName"></label>
+                            <div class="invalid-feedback">
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-4">
+                            <input asp-for="LastName" class="form-control" placeholder="doe" maxlength="100" />
+                            <label asp-for="LastName"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4">
+                            <input asp-for="Email" class="form-control" placeholder="xxx@example.com" />
+                            <label asp-for="Email"></label>
+                            <div class="invalid-feedback">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-4">
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="xxxxxx" />
+                            <label asp-for="PhoneNumber"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4">
+                            @Html.DropDownListFor(model=>model.Role,Model.RoleList,new{@class="form-control"})
+                            <label asp-for="Role"></label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-4">
+                            <input type="date" asp-for="DOB" class="form-control" />
+                            <label asp-for="DOB"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-4">
+                            <textarea asp-for="Address" class="form-control" placeholder="xxxxxx"></textarea>
+                            <label asp-for="Address"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-outline-dark col-1">Update</button>
+                        <a class="btn btn-outline-danger col-1" asp-controller="User" asp-action="Index">Cancel</a>
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

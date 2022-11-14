@@ -1,0 +1,94 @@
+﻿@model NetCoreFrame.Entities.DTO.PostViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int srno = 0;
+}
+
+<h1>Post List</h1>
+
+<div class="container-fluid h-100 mt-5">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="col-12 right mb-3">
+                <a class="btn btn-outline-dark btn-sm" asp-controller="Post" asp-action="Create">Create New Post</a>
+            </div>
+            <table id="tbl" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        @* <th>
+                        No.
+                        </th>*@
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Created Date
+                        </th>
+                        <th>
+                            Created By
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                
+                @*@foreach(var item in Model.posts)
+                {
+                    srno++;
+                    <tr>
+                        <td>@srno</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>
+                            @if(item.IsPublished)
+                            {
+                                <span class="badge rounded-pill bg-primary">Published</span>
+                            }
+                            else{
+                                <span class="badge rounded-pill bg-primary">Unpublished</span>
+                            }
+                              
+                        </td>
+                        <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
+                        <td>@item.CreatedUserName</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-dark btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Action
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="dropdown-item">Edit</a>
+                                    </li>
+                                    <li><a asp-action="Delete" asp-route-id="@item.Id" class="dropdown-item text-danger">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                @if(Model.posts.Count==0)
+                {
+                    <tfoot>
+                        <tr>
+                            <td colspan="7">
+                                No data available.
+                            </td>
+                        </tr>
+                    </tfoot>
+                }*@
+               
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/pages/post-list.js"></script>
+  
