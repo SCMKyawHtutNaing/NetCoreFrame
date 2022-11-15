@@ -18,14 +18,15 @@ function BindGrid() {
             //    "searchable": false
             //}],
             "columns": [
-                { "data": "fullName", "name": "FullName", "width": "20%" },
-                { "data": "email", "name": "Description", "width": "20%" },
+                { "data": "fullName", "name": "FullName", "autoWidth": true },
+                { "data": "email", "name": "Description", "autoWidth": true },
+                { "data": "createdUserName", "name": "CreatedUserName", "autoWidth": true },
                 {
                     "render": function (data, type, full, meta) {
 
                         var str = "";
 
-                        if (full.role=="1") {
+                        if (full.role == "1") {
                             str = "<span class='badge rounded-pill bg-primary'>Admin</span>";
                         } else {
                             str = "<span class='badge rounded-pill bg-danger'>User</span>";
@@ -34,8 +35,10 @@ function BindGrid() {
                         return str;
                     }
                 },
-                { "data": "createdDate", "name": "CreatedDate", "autoWidth": true },
-                { "data": "createdUserName", "name": "CreatedUserName", "autoWidth": true },
+                { "data": "phoneNumber", "name": "phoneNumber", "autoWidth": true },
+                { "data": "dobString", "name": "dobString", "autoWidth": true },
+                { "data": "address", "name": "address", "autoWidth": true },
+                /*                { "data": "createdDate", "name": "CreatedDate", "autoWidth": true },*/
                 {
                     render: function (data, type, full) {
 
@@ -73,7 +76,7 @@ function Delete(id) {
             } else {
                 alert("Something Went Wrong!");
             }
-        });  
+        });
     } else {
         return false;
     }
